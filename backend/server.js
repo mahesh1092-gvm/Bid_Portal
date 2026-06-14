@@ -14,7 +14,7 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin:['http://localhost:5173', 'http://127.0.0.1:5173','https://bid-portal.vercel.app/'],
   credentials:true
 }))
 //add cookie parser middeleware
