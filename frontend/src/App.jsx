@@ -14,7 +14,7 @@ import BrowseProjects from "./pages/BrowseProjects";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ProjectFormPage from "./pages/ProjectFormPage";
 import ProfilePage from "./pages/ProfilePage";
-import NotificationsPage from "./pages/NotificationsPage";
+//import NotificationsPage from "./pages/NotificationsPage";
 import MyBidsPage from "./pages/MyBidsPage";
 import FreelancerProfilePage from "./pages/FreelancerProfilePage";
 
