@@ -13,7 +13,7 @@ export default function ProjectFormPage() {
     event.preventDefault();
     setError("");
     try {
-      const { data } = await api.post("/projects", form);
+      const { data } = await api.post("/api/projects", form);
       navigate(`/projects/${data.payload._id}`);
     } catch (err) {
       setError(getMessage(err));

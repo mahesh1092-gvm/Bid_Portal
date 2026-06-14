@@ -17,7 +17,7 @@ export default function ProjectDetailPage() {
   const [message, setMessage] = useState("");
 
   const loadProject = async () => {
-    const { data } = await api.get(`/projects/${id}`);
+    const { data } = await api.get(`/api/projects/${id}`);
     setProject(data.payload.project);
     setBids(data.payload.bids);
   };
@@ -30,7 +30,7 @@ export default function ProjectDetailPage() {
     event.preventDefault();
     setMessage("");
     try {
-      await api.post("/bids", { ...bidForm, projectId: id });
+      await api.post("/api/bids", { ...bidForm, projectId: id });
       setBidForm({ bidAmount: "", estimatedDays: "", proposal: "" });
       setMessage("Bid submitted.");
       loadProject();
@@ -40,37 +40,37 @@ export default function ProjectDetailPage() {
   };
 
   const updateBidStatus = async (bidId, status) => {
-    await api.patch(`/bids/${bidId}/status`, { status });
+    await api.patch(`/api/bids/${bidId}/status`, { status });
     loadProject();
   };
 
   const startProject = async () => {
-    await api.patch(`/projects/${id}/start`);
+    await api.patch(`/api/projects/${id}/start`);
     loadProject();
   };
 
   const submitWork = async (event) => {
     event.preventDefault();
-    await api.patch(`/projects/${id}/submit`, workForm);
+    await api.patch(`/api/projects/${id}/submit`, workForm);
     setWorkForm({ url: "", note: "" });
     loadProject();
   };
 
   const requestRevision = async () => {
-    await api.patch(`/projects/${id}/request-revision`, { message: revisionMessage });
+    await api.patch(`/api/projects/${id}/request-revision`, { message: revisionMessage });
     setRevisionMessage("");
     loadProject();
   };
 
   const completeProject = async () => {
-    await api.patch(`/projects/${id}/complete`);
+    await api.patch(`/api/projects/${id}/complete`);
     loadProject();
   };
 
   const submitReview = async (event) => {
     event.preventDefault();
     const receiverId = user.role === "CLIENT" ? project.selectedFreelancerId?._id : project.clientId?._id;
-    await api.post("/reviews", { projectId: id, receiverId, ...review });
+    await api.post("/api/reviews", { projectId: id, receiverId, ...review });
     setMessage("Review submitted.");
   };
 

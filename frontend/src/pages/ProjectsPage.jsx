@@ -8,7 +8,7 @@ export default function ProjectsPage() {
   const [filters, setFilters] = useState({ q: "", status: "", category: "", skill: "" });
 
   const loadProjects = async () => {
-    const { data } = await api.get("/projects", { params: filters });
+    const { data } = await api.get("/api/projects", { params: filters });
     setProjects(data.payload);
   };
 

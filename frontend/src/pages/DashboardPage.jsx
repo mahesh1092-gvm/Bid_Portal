@@ -9,7 +9,7 @@ export default function DashboardPage() {
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
-    api.get("/auth/dashboard").then(({ data }) => setStats(data.payload));
+    api.get("/api/auth/dashboard").then(({ data }) => setStats(data.payload));
   }, []);
 
   return (

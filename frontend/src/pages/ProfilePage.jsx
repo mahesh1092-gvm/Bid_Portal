@@ -29,7 +29,7 @@ export default function ProfilePage() {
       Object.entries(form).forEach(([key, value]) => {
         if (value) payload.append(key, value);
       });
-      const { data } = await api.put("/auth/profile", payload);
+      const { data } = await api.put("/api/auth/profile", payload);
       setUser(data.payload);
       setMessage("Profile updated.");
     } catch (err) {

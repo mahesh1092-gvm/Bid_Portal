@@ -7,7 +7,7 @@ export const useAuthStore = create((set) => ({
   setUser: (user) => set({ user }),
   checkAuth: async () => {
     try {
-      const { data } = await api.get("/auth/check-auth");
+      const { data } = await api.get("/api/auth/check-auth");
       set({ user: data.payload, loading: false });
     } catch {
       localStorage.removeItem("fbp_token");
@@ -15,17 +15,17 @@ export const useAuthStore = create((set) => ({
     }
   },
   login: async (credentials) => {
-    const { data } = await api.post("/auth/login", credentials);
+    const { data } = await api.post("/api/auth/login", credentials);
     localStorage.setItem("fbp_token", data.token);
     set({ user: data.payload });
     return data.payload;
   },
   register: async (payload) => {
-    const { data } = await api.post("/auth/register", payload);
+    const { data } = await api.post("/api/auth/register", payload);
     return data.payload;
   },
   logout: async () => {
-    await api.get("/auth/logout");
+    await api.get("/api/auth/logout");
     localStorage.removeItem("fbp_token");
     set({ user: null });
   },

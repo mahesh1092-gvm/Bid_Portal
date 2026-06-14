@@ -7,7 +7,7 @@ export default function MyBidsPage() {
   const [bids, setBids] = useState([]);
 
   useEffect(() => {
-    api.get("/bids/mine").then(({ data }) => setBids(data.payload));
+    api.get("/api/bids/mine").then(({ data }) => setBids(data.payload));
   }, []);
 
   return (

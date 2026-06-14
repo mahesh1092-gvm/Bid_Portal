@@ -10,7 +10,7 @@ export default function FreelancerProfilePage() {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    api.get(`/auth/users/${id}`).then(({ data }) => setProfile(data.payload));
+    api.get(`/api/auth/users/${id}`).then(({ data }) => setProfile(data.payload));
   }, [id]);
 
   if (!profile) return <div className="text-sm text-stone-500">Loading profile...</div>;

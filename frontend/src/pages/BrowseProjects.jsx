@@ -20,7 +20,7 @@ export default function BrowseProjects() {
   const loadProjects = async () => {
     setLoading(true);
     try {
-      const { data } = await api.get("/projects?status=open");
+      const { data } = await api.get("/api/projects?status=open");
       setProjects(data.payload);
     } catch (err) {
       setError(getMessage(err));
@@ -53,7 +53,7 @@ export default function BrowseProjects() {
     setSubmittingBid(true);
 
     try {
-      await api.post("/bids", {
+      await api.post("/api/bids", {
         projectId: selectedProject._id,
         bidAmount: Number(bidAmount),
         estimatedDays: Number(estimatedDays),

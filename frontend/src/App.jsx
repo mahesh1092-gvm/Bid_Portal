@@ -61,7 +61,7 @@ export default function App() {
           <Route path="bids" element={<MyBidsPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="freelancers/:id" element={<FreelancerProfilePage />} />
-          <Route path="notifications" element={<NotificationsPage />} />
+          {/* <Route path="notifications" element={<NotificationsPage />} /> */}
         </Route>
       ) : (
         <Route path="/" element={<PublicLayout />}>
@@ -82,7 +82,7 @@ export default function App() {
           <Route path="/bids" element={<Navigate to="/login" replace />} />
           <Route path="/profile" element={<Navigate to="/login" replace />} />
           <Route path="/freelancers/:id" element={<Navigate to="/login" replace />} />
-          <Route path="/notifications" element={<Navigate to="/login" replace />} />
+          {/* <Route path="/notifications" element={<Navigate to="/login" replace />} /> */}
         </>
       )}
 
