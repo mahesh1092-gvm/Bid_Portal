@@ -28,11 +28,13 @@ export default function Login() {
   return (
     <div className="max-w-md mx-auto my-16 p-8 bg-stone-50 rounded-2xl shadow-sm border border-stone-100">
       <h2 className="text-2xl font-bold text-stone-900 text-center mb-6">Welcome Back</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
         <div>
           <label className="block text-xs font-semibold text-stone-500 uppercase mb-1.5">Email Address</label>
           <input
             type="email"
+            name="login_email"
+            autoComplete="off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10"
@@ -44,6 +46,8 @@ export default function Login() {
           <label className="block text-xs font-semibold text-stone-500 uppercase mb-1.5">Password</label>
           <input
             type="password"
+            name="login_password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10"
